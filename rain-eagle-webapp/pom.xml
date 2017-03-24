@@ -1,19 +1,40 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org.rain.eagle</groupId>
-    <artifactId>rain-eagle</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-  </parent>
-  <groupId>org.rain.eagle.webapp</groupId>
-  <artifactId>rain-eagle-webapp</artifactId>
-  <packaging>war</packaging>
-  <name>rain-eagle-webapp Maven Webapp</name>
-  <url>http://maven.apache.org</url>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.rain.eagle</groupId>
+		<artifactId>rain-eagle</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<groupId>org.rain.eagle.webapp</groupId>
+	<artifactId>rain-eagle-webapp</artifactId>
+	<packaging>war</packaging>
+	<name>rain-eagle-webapp Maven Webapp</name>
+	<url>http://maven.apache.org</url>
 
-  <build>
-    <finalName>rain-eagle-webapp</finalName>
-  </build>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>javax.el-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp.jstl</groupId>
+			<artifactId>javax.servlet.jsp.jstl-api</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>rain-eagle-webapp</finalName>
+	</build>
 </project>

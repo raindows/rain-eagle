@@ -314,6 +314,15 @@
 	<build>
 		<plugins>
 
+			<!-- https://www.eclipse.org/jetty/download.html -->
+			<!-- https://www.eclipse.org/jetty/documentation/current/jetty-maven-plugin.html -->
+			<!-- mvn jetty:run -Djetty.port=8081 -->
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.2.21.v20170120</version>
+			</plugin>
+
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>2.6</version>
