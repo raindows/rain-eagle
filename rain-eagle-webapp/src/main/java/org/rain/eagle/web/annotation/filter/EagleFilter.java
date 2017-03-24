@@ -26,7 +26,7 @@ public class EagleFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
-		System.err.println("filter1===" + httpServletRequest.getRequestURI());
+		System.err.printf("eagleFilter : {}\n", httpServletRequest.getRequestURI());
 		chain.doFilter(request, response);
 	}
 
