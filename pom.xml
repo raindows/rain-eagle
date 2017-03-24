@@ -21,6 +21,9 @@
 	<properties>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jdk.version>1.7</jdk.version>
+		<jetty.maven.version>9.0.4.v20130625</jetty.maven.version>
+		<tomcat.maven.version>2.1</tomcat.maven.version>
 
 		<junit.version>4.8.2</junit.version>
 
@@ -34,7 +37,7 @@
 		<c3p0.version>0.9.5-pre8</c3p0.version>
 		<druid.version>1.0.5</druid.version>
 
-		<servlet.api.version>3.0.1</servlet.api.version>
+		<servlet.api.version>3.1.0</servlet.api.version>
 		<jsp.api.version>2.2.1</jsp.api.version>
 		<el.api.version>2.2.5</el.api.version>
 		<jstl.api.version>1.2.1</jstl.api.version>
@@ -65,6 +68,20 @@
 
 	<dependencyManagement>
 		<dependencies>
+			<!-- jetty -->
+			<dependency>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-servlet</artifactId>
+				<version>${jetty.maven.version}</version>
+				<scope>provided</scope>
+				<exclusions>
+					<exclusion>
+						<artifactId>javax.servlet</artifactId>
+						<groupId>org.eclipse.jetty.orbit</groupId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
 			<!-- spring -->
 			<dependency>
 				<groupId>org.springframework</groupId>
@@ -213,21 +230,25 @@
 				<groupId>javax.servlet</groupId>
 				<artifactId>javax.servlet-api</artifactId>
 				<version>${servlet.api.version}</version>
+				<scope>provied</scope>
 			</dependency>
 			<dependency>
 				<groupId>javax.servlet.jsp</groupId>
 				<artifactId>javax.servlet.jsp-api</artifactId>
 				<version>${jsp.api.version}</version>
+				<scope>provied</scope>
 			</dependency>
 			<dependency>
 				<groupId>javax.el</groupId>
 				<artifactId>javax.el-api</artifactId>
 				<version>${el.api.version}</version>
+				<scope>provied</scope>
 			</dependency>
 			<dependency>
 				<groupId>javax.servlet.jsp.jstl</groupId>
 				<artifactId>javax.servlet.jsp.jstl-api</artifactId>
 				<version>${jstl.api.version}</version>
+				<scope>provied</scope>
 			</dependency>
 
 			<!-- db -->
@@ -320,7 +341,24 @@
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
-				<version>9.2.21.v20170120</version>
+				<version>${jetty.maven.version}</version>
+				<configuration>
+					<webAppConfig>
+						<contextPath>/${project.build.finalName}</contextPath>
+					</webAppConfig>
+					<httpConnector>
+						<port>8087</port>
+					</httpConnector>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>${tomcat.maven.version}</version>
+				<configuration>
+					<port>8087</port>
+				</configuration>
 			</plugin>
 
 			<plugin>
@@ -332,9 +370,9 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-					<encoding>UTF-8</encoding>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
 
