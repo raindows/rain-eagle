@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.rain.eagle.rpc.server.repository.EagleUserRepository">
+
+	<resultMap id="BaseResultMap" type="org.rain.eagle.rpc.server.entity.EagleUser">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="user_id" property="userId" jdbcType="VARCHAR" />
+		<result column="user_name" property="userName" jdbcType="VARCHAR" />
+		<result column="user_sex" property="userSex" jdbcType="TINYINT" />
+		<result column="user_birth_year" property="userBirthYear"
+			jdbcType="VARCHAR" />
+		<result column="user_birth_month" property="userBirthMonth"
+			jdbcType="VARCHAR" />
+		<result column="user_birth_day" property="userBirthDay"
+			jdbcType="VARCHAR" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		id,
+		user_id,
+		user_name,
+		user_sex,
+		user_birth_year,
+		user_birth_month,
+		user_birth_day,
+		create_time,
+		update_time
+	</sql>
+
+	<insert id="insert" parameterType="org.rain.eagle.rpc.server.entity.EagleUser">
+		INSERT INTO eagle_user (
+		user_id,
+		user_name,
+		user_sex,
+		user_birth_year,
+		user_birth_month,
+		user_birth_day,
+		create_time,
+		update_time
+		)
+		VALUES (
+		#{userId,jdbcType=VARCHAR},
+		#{userName,jdbcType=VARCHAR},
+		#{userSex,jdbcType=TINYINT},
+		#{userBirthYear,jdbcType=VARCHAR},
+		#{userBirthMonth,jdbcType=TINYINT},
+		#{userBirthDay,jdbcType=TIMESTAMP},
+		CURRENT_TIMESTAMP,
+		CURRENT_TIMESTAMP
+		)
+	</insert>
+
+	<update id="updateByPrimaryKeySelective" parameterType="org.rain.eagle.rpc.server.entity.EagleUser">
+		UPDATE eagle_user
+		<set>
+			<if test="userId != null">
+				user_id= #{userId,jdbcType=VARCHAR},
+			</if>
+			<if test="userName != null">
+				user_name= #{userName,jdbcType=VARCHAR},
+			</if>
+			<if test="userSex != null">
+				user_sex= #{userSex,jdbcType=TINYINT},
+			</if>
+			<if test="userBirthYear != null">
+				user_birth_year= #{userBirthYear,jdbcType=VARCHAR},
+			</if>
+			<if test="userBirthMonth != null">
+				user_birth_month= #{userBirthMonth,jdbcType=VARCHAR},
+			</if>
+			<if test="userBirthDay != null">
+				user_birth_day= #{userBirthDay,jdbcType=VARCHAR},
+			</if>
+		</set>
+		WHERE id = #{id,jdbcType=BIGINT}
+	</update>
+
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Long">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM eagle_user
+		WHERE id = #{id,jdbcType=BIGINT}
+	</select>
+
+</mapper>
