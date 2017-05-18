@@ -9,5 +9,7 @@ public class Test {
 		Integer[] a = { 1,2,3,4 };
 		List<?> list = Arrays.asList(a);
 		System.out.println(list.size());  // [I
+
+		System.out.println(Integer.MAX_VALUE + 1 < Integer.MAX_VALUE);
 	}
 }
