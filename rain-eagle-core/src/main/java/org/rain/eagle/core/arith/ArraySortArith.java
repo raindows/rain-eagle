@@ -4,14 +4,14 @@ import java.util.Arrays;
 
 public class ArraySortArith {
 
-	public static void quicksort(int[] array) {
+	public static void quickSort(int[] array) {
 		if (array == null) {
 			return;
 		}
-		quciksort(array, 0, array.length - 1);
+		quickSort(array, 0, array.length - 1);
 	}
 
-	private static void quciksort(int[] array, int start, int end) {
+	private static void quickSort(int[] array, int start, int end) {
 		if (start >= end) {
 			return;
 		}
@@ -27,8 +27,8 @@ public class ArraySortArith {
 			swap(array, left, end);
 		else
 			left++;
-		quciksort(array, start, left - 1);
-		quciksort(array, left + 1, end);
+		quickSort(array, start, left - 1);
+		quickSort(array, left + 1, end);
 	}
 
 	private static void swap(int[] array, int i, int j) {
@@ -36,6 +36,18 @@ public class ArraySortArith {
 		array[j] = array[i];
 		array[i] = temp;
 		System.out.println(Arrays.toString(array));
+	}
+
+	public static void insertionSort(int[] array) {
+		int length = array.length;
+		for (int i = 1; i < length; i++) {
+			for (int j = i; j > 0; j--) {
+				if (array[j - 1] <= array[j]) {
+					break;
+				}
+				swap(array, j - 1, j);
+			}
+		}
 	}
 
 }
