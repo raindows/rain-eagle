@@ -45,7 +45,7 @@ public class EagleUserServiceImpl implements EagleUserService {
 	public int update(EagleUser eagleUser){
 		int update = eagleUserRepository.updateByPrimaryKeySelective(eagleUser);
 		if (update == 1) {
-			throw new RuntimeException();
+			throw new RuntimeException("update(EagleUser eagleUser)执行更新异常");
 		}
 		return update;
 	}
