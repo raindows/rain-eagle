@@ -34,14 +34,14 @@ public class EagleUserServiceImpl implements EagleUserService {
 		return update;
 	}*/
 	
-	@Transactional(value = "eagleTxManager", propagation = Propagation.REQUIRED, readOnly = false)
+	//@Transactional(value = "eagleTxManager", propagation = Propagation.REQUIRED, readOnly = false)
 	@Override
 	public int updateByPrimaryKeySelective(EagleUser eagleUser) {
 		int update = this.update(eagleUser);//this調用非代理調用 而是被代理對象調用
 		return update;
 	}
 
-	//@Transactional(value = "eagleTxManager", propagation = Propagation.REQUIRED, readOnly = false)
+	@Transactional(value = "eagleTxManager", propagation = Propagation.REQUIRED, readOnly = false)
 	public int update(EagleUser eagleUser){
 		int update = eagleUserRepository.updateByPrimaryKeySelective(eagleUser);
 		if (update == 1) {

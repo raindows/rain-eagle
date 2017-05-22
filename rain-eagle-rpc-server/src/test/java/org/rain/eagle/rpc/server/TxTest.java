@@ -24,7 +24,7 @@ public class TxTest extends AbstractJUnit4SpringContextTests {
 		System.err.println(eagleUser.getUserName() + "\t" + JSON.toJSONString(eagleUser));
 		
 		try {
-			eagleUser.setUserName("事务测试C");
+			eagleUser.setUserName("事务测试D");
 			int update = eagleUserService.updateByPrimaryKeySelective(eagleUser);
 			System.err.println(update);
 		} catch (Exception e) {
