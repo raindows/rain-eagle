@@ -1,3 +1,16 @@
+### 序列化
+> [jvm-serializer](https://github.com/vongosling/jvm-serializer) 
+> [Java 序列化的高级认识](https://www.ibm.com/developerworks/cn/java/j-lo-serial/)
+> [Java序列化技术与Protobuff](http://www.cnblogs.com/fangfan/p/4094175.html)
+
+### 算法
+> https://soulmachine.gitbooks.io/algorithm-essentials/content/java/linear-list/array/remove-duplicates-from-sorted-array.html
+
+> [快速排序](https://zh.wikipedia.org/wiki/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F)
+> [插入排序](https://zh.wikipedia.org/wiki/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F)
+### 模式
+
+### 并发编程
 
 > 序列化字节码
 
