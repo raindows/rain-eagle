@@ -18,28 +18,28 @@ public class PersonJdkSerialize extends Person {
 		oos.defaultWriteObject();
 		oos.writeInt(this.getAge());
 		
-		oos.writeChar(this.getSex());
+		/*oos.writeChar(this.getSex());
 		
 		String name = this.getName();
 		int length = name.length();
 		oos.writeInt(length);
 		for(int i = 0; i < length; i++){
 			oos.writeChar(name.charAt(i));
-		}
+		}*/
 	}
 
 	private void readObject(ObjectInputStream ois) throws Exception {
 		ois.defaultReadObject();
 		this.setAge(ois.readInt());
 		
-		this.setSex(ois.readChar());
+		/*this.setSex(ois.readChar());
 		
 		int length =  ois.readInt();
 		char[] chars = new char[length];
 		for(int i = 0; i < length; i++){
 			chars[i] = ois.readChar();
 		}
-		this.setName(new String(chars));
+		this.setName(new String(chars));*/
 
 		LOG.info("person deserialize");
 	}

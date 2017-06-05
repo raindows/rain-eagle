@@ -70,7 +70,9 @@
 		<cglib.version>3.2.5</cglib.version>
 		<javassist.version>3.20.0-GA</javassist.version>
 
-		<fastjson.version>1.2.29</fastjson.version>
+		<fastjson.version>1.2.31</fastjson.version>
+		<protostuff.version>1.0.8</protostuff.version>
+		<objenesis.version>2.1</objenesis.version>
 		<thrift.version>0.8.0</thrift.version>
 		<hessian.version>4.0.7</hessian.version>
 		<netty.version>3.7.0.Final</netty.version>
@@ -378,6 +380,25 @@
 				<artifactId>fastjson</artifactId>
 				<version>${fastjson.version}</version>
 			</dependency>
+
+			<!-- Protostuff -->
+			<dependency>
+				<groupId>com.dyuproject.protostuff</groupId>
+				<artifactId>protostuff-core</artifactId>
+				<version>${protostuff.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.dyuproject.protostuff</groupId>
+				<artifactId>protostuff-runtime</artifactId>
+				<version>${protostuff.version}</version>
+			</dependency>
+			<!-- Objenesis -->
+			<dependency>
+				<groupId>org.objenesis</groupId>
+				<artifactId>objenesis</artifactId>
+				<version>${objenesis.version}</version>
+			</dependency>
+
 			<dependency>
 				<groupId>io.netty</groupId>
 				<artifactId>netty</artifactId>

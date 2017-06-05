@@ -1,3 +1,14 @@
+### 序列化
+> [jvm-serializer](https://github.com/vongosling/jvm-serializer) 
+> [Java 序列化的高级认识](https://www.ibm.com/developerworks/cn/java/j-lo-serial/)
+> [Java序列化技术与Protobuff](http://www.cnblogs.com/fangfan/p/4094175.html)
+
+### 算法
+
+### 模式
+
+### 并发编程
+
 > 序列化字节码
 
 ACED2005737220246F72672E7261696E
