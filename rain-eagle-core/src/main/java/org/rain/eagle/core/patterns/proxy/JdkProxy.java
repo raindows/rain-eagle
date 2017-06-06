@@ -6,7 +6,6 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 
-import org.rain.eagle.core.patterns.proxy.test.SpringAop;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,9 +17,9 @@ public class JdkProxy {
 	private static final Logger LOG = LoggerFactory.getLogger(JdkProxy.class);
 
 	static {
-		//生成代理类方法一
+		// 生成代理类方法一
 		System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
-		//生成代理类方法二
+		// 生成代理类方法二
 		generateProxyClassFile("jdk$proxy", SpringAop.class);
 	}
 

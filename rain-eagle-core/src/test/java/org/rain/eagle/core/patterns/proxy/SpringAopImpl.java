@@ -1,4 +1,4 @@
-package org.rain.eagle.core.patterns.proxy.test;
+package org.rain.eagle.core.patterns.proxy;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

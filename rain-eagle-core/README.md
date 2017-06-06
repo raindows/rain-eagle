@@ -1,4 +1,5 @@
 ### 序列化
+> 序列化的目的是进行数据存储和交换，依据这个概念，xml,json也是一种序列化的技术，只是他们似乎是一种容易分辨的序列化技术，而类似于protostuff或Java自身的序列化技术似乎略神秘。
 > [jvm-serializer](https://github.com/vongosling/jvm-serializer) 
 > [Java 序列化的高级认识](https://www.ibm.com/developerworks/cn/java/j-lo-serial/)
 > [Java序列化技术与Protobuff](http://www.cnblogs.com/fangfan/p/4094175.html)

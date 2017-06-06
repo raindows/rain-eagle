@@ -1,4 +1,4 @@
-package org.rain.eagle.core.patterns.proxy.test;
+package org.rain.eagle.core.patterns.proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
