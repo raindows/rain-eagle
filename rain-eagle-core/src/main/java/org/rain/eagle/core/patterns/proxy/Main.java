@@ -1,8 +1,5 @@
 package org.rain.eagle.core.patterns.proxy;
 
-import org.rain.eagle.core.patterns.proxy.CglibProxy;
-import org.rain.eagle.core.patterns.proxy.JdkProxy;
-
 public class Main {
 
 	public static void main(String[] args) {
