@@ -18,11 +18,16 @@ public class TxTest extends AbstractJUnit4SpringContextTests {
 	private EagleUserService eagleUserService;
 
 	@Test
+	public void testBase() {
+	
+	}
+
+	// @Test
 	public void test() {
 		System.out.println(eagleUserService.getClass().getName());
 		EagleUser eagleUser = eagleUserService.selectByPrimaryKey((long) 5);
 		System.err.println(eagleUser.getUserName() + "\t" + JSON.toJSONString(eagleUser));
-		
+
 		try {
 			eagleUser.setUserName("事务测试D");
 			int update = eagleUserService.updateByPrimaryKeySelective(eagleUser);
@@ -30,7 +35,7 @@ public class TxTest extends AbstractJUnit4SpringContextTests {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 		eagleUser = eagleUserService.selectByPrimaryKey((long) 5);
 		System.err.println(eagleUser.getUserName() + "\t" + JSON.toJSONString(eagleUser));
 	}
