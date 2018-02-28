@@ -3,6 +3,16 @@ package org.rain.eagle.rpc.server.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * <p>
+ * 服务注册发现
+ * </p>
+ *
+ * @author xiaoyu.wang
+ * @date 2017年10月17日 下午4:50:43
+ * @version
+ */
+
 public class EagleUser implements Serializable {
 
 	private static final long serialVersionUID = -4915875925879898230L;

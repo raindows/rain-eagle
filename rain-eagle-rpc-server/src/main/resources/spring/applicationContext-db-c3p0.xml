@@ -14,9 +14,9 @@
 	<!-- 数据源配置,使用c3p0数据库连接池 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />  
-        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/eagle?characterEncoding=UTF-8" />  
-        <property name="user" value="root" />  
-        <property name="password" value="root" /> 
+        <property name="jdbcUrl" value="jdbc:mysql://test-fast-mysql.meditrusthealth.com:3306/eagle?characterEncoding=UTF-8" />  
+        <property name="user" value="fast" />  
+        <property name="password" value="mxjk@123" /> 
         <!--初始化连接池中的连接数,取值应在minPoolSize与maxPoolSize之间，默认为3-->   
 		<property name="initialPoolSize" value="4" />
 		<!--连接池中保留的最大连接数,默认值:15 -->   
