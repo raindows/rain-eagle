@@ -20,6 +20,12 @@ public class Main {
 				new AopMethodInterceptor(new SpringAopImpl()));
 		cglib$$Proxy.process();
 		cglib$$Proxy.isOpen();
+
+		// ================================cglib
+		SpringAop cglib$$Proxy1 = CglibProxy.getProxyInstance(SpringAopImpl.class,
+				new AopMethodInterceptor(new SpringAopImpl()));
+		cglib$$Proxy1.process();
+		cglib$$Proxy1.isOpen();
 	}
 
 }

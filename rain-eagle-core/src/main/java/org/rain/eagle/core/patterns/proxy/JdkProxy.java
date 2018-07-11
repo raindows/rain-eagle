@@ -20,7 +20,7 @@ public class JdkProxy {
 		// 生成代理类方法一
 		System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
 		// 生成代理类方法二
-		generateProxyClassFile("jdk$proxy", SpringAop.class);
+		generateProxyClassFile("com.sun.proxy.jdk$proxy", SpringAop.class);
 	}
 
 	public static <T> T newProxyInstance(Class<T> clazz, InvocationHandler h) {
@@ -40,11 +40,12 @@ public class JdkProxy {
 		return null;
 	}
 
-	public static void generateProxyClassFile(String name, Class<?> clazz) {
+	public static void generateProxyClassFile(String proxyName, Class<?> interfaces) {
 		try {
-			byte[] b = ProxyGenerator.generateProxyClass(name, new Class[] { clazz });
-			FileOutputStream fos = new FileOutputStream(new File(name + ".class"));
+			byte[] b = ProxyGenerator.generateProxyClass(proxyName, new Class[] { interfaces });
+			FileOutputStream fos = new FileOutputStream(new File(proxyName + ".class"));
 			fos.write(b);
+			fos.flush();
 			fos.close();
 		} catch (Exception e) {
 			LOG.error(e.getMessage(), e);
