@@ -24,7 +24,8 @@ public class AopMethodInterceptor implements MethodInterceptor {
 			MethodProxy paramMethodProxy) throws Throwable {
 		LOG.info("method :{} start time : {}", paramMethod.getName(), System.currentTimeMillis());
 
-		Object value = paramMethod.invoke(obj, paramArrayOfObject);
+		//Object value = paramMethod.invoke(obj, paramArrayOfObject);
+		Object value = paramMethodProxy.invokeSuper(obj, paramArrayOfObject);
 
 		LOG.info("method :{} end time : {}\n", paramMethod.getName(), System.currentTimeMillis());
 		return value;
