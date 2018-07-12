@@ -1,6 +1,11 @@
 package cn.dalabs.r;
 
-public class ParamInfo {
+import java.io.Serializable;
+
+public class ParamInfo implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	
 	private String PatientName;
 	private String PatientTel;
 	private String TestCode;
