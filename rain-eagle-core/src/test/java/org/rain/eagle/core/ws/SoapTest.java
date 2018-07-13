@@ -24,8 +24,8 @@ import cn.dalabs.r.ParamInfo;
 public class SoapTest {
 
 	public static void main(String[] args) throws Exception {
-		//method01();
-		method02();
+		method01();
+		//method02();
 	}
 
 	private static void method01() {
@@ -49,7 +49,7 @@ public class SoapTest {
 			// "0185B48537A84484E050A8C02A005379","","");
 			// objs = client.invoke("QueryReportsByHospInfo", "杭州迪安测试客户",
 			// "0185B48537A84484E050A8C02A005379",paramInfo);
-			objs = client.invoke("QueryReportsByHospInfo", "杭州迪安测试客户", "0185B48537A84484E050A8C02A005379", paramInfo);
+			objs = client.invoke("QueryReportsByHospInfo", "杭州迪安测试客户", "0185B48537A84484E050A8C02A005379", JSON.toJSONString(paramInfo));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
