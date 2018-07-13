@@ -2,7 +2,9 @@ package org.rain.eagle.core.ws;
 
 import java.beans.PropertyDescriptor;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.xml.namespace.QName;
 
@@ -16,16 +18,15 @@ import org.apache.cxf.service.model.MessagePartInfo;
 import org.apache.cxf.service.model.ServiceInfo;
 import org.apache.cxf.transport.http.HTTPConduit;
 import org.apache.cxf.transports.http.configuration.HTTPClientPolicy;
+import org.jsoup.Jsoup;
 
 import com.alibaba.fastjson.JSON;
-
-import cn.dalabs.r.ParamInfo;
 
 public class SoapTest {
 
 	public static void main(String[] args) throws Exception {
 		method01();
-		//method02();
+		// method02();
 	}
 
 	private static void method01() {
@@ -39,24 +40,26 @@ public class SoapTest {
 		http.setClient(httpClientPolicy);
 		Object[] objs = null;
 		try {
-			ParamInfo paramInfo = new ParamInfo();
-			paramInfo.setPatientName("test");
-			paramInfo.setPatientTel("13888888888");
-			paramInfo.setTestCode("3001907");
-			paramInfo.setStartDate("2018-01-01");
-			paramInfo.setEndDate("2018-07-01");
+			Map<String, String> paramInfo = new HashMap<>();
+			paramInfo.put("PatientName", "test");
+			paramInfo.put("PatientTel", "13888888888");
+			paramInfo.put("TestCode", "3001907");
+			paramInfo.put("StartDate", "2018-01-01");
+			paramInfo.put("EndDate", "2018-07-01");
 			// objs = client.invoke("GetTestComparison", "杭州迪安测试客户",
 			// "0185B48537A84484E050A8C02A005379","","");
 			// objs = client.invoke("QueryReportsByHospInfo", "杭州迪安测试客户",
 			// "0185B48537A84484E050A8C02A005379",paramInfo);
-			objs = client.invoke("QueryReportsByHospInfo", "杭州迪安测试客户", "0185B48537A84484E050A8C02A005379", JSON.toJSONString(paramInfo));
+			objs = client.invoke("QueryReportsByHospInfo", "杭州迪安测试客户", "0185B48537A84484E050A8C02A005379",
+					JSON.toJSONString(paramInfo));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		if (objs != null) {
-			System.out.println(Arrays.toString(objs));
+			System.out.println(Arrays.toString(objs) + "\n");
 			String retJson = (String) objs[0];
-			System.out.println(retJson);
+			System.out.println(retJson + "\n");
+			System.out.println(Jsoup.parse(retJson).select("PDFREPORTURL").html());
 		} else {
 			System.out.println("结果为空");
 		}
@@ -103,9 +106,10 @@ public class SoapTest {
 
 		Object[] result = client.invoke(opName, "杭州迪安测试客户", "0185B48537A84484E050A8C02A005379", param2Obj);
 		if (result != null) {
-			System.out.println(Arrays.toString(result));
+			System.out.println(Arrays.toString(result) + "\n");
 			String retJson = (String) result[0];
-			System.out.println(retJson);
+			System.out.println(retJson + "\n");
+			System.out.println(Jsoup.parse(retJson).select("PDFREPORTURL").html());
 		} else {
 			System.out.println("结果为空");
 		}
