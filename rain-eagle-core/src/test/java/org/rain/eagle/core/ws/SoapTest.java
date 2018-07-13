@@ -41,11 +41,11 @@ public class SoapTest {
 		Object[] objs = null;
 		try {
 			Map<String, String> paramInfo = new HashMap<>();
-			paramInfo.put("PatientName", "test");
-			paramInfo.put("PatientTel", "13888888888");
-			paramInfo.put("TestCode", "3001907");
-			paramInfo.put("StartDate", "2018-01-01");
-			paramInfo.put("EndDate", "2018-07-01");
+			paramInfo.put("patientName", "test");
+			paramInfo.put("patientTel", "13888888888");
+			paramInfo.put("testCode", "3001907");
+			paramInfo.put("startDate", "2018-01-01");
+			paramInfo.put("endDate", "2018-07-01");
 			// objs = client.invoke("GetTestComparison", "杭州迪安测试客户",
 			// "0185B48537A84484E050A8C02A005379","","");
 			// objs = client.invoke("QueryReportsByHospInfo", "杭州迪安测试客户",
